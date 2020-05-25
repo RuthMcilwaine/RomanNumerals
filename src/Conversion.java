@@ -1,0 +1,62 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Conversion {
+
+
+    public static Map<String, String> numberValues;
+
+    static {
+        numberValues = new HashMap<>();
+        numberValues.put("1", "I");
+        numberValues.put("2", "II");
+        numberValues.put("3", "III");
+        numberValues.put("4", "IV");
+        numberValues.put("5", "V");
+        numberValues.put("6", "VI");
+        numberValues.put("7", "VII");
+        numberValues.put("8", "VIII");
+        numberValues.put("9", "IX");
+        numberValues.put("10", "X");
+        numberValues.put("20", "XX");
+        numberValues.put("30", "XXX");
+        numberValues.put("40", "XL");
+        numberValues.put("50", "L");
+        numberValues.put("60", "LX");
+        numberValues.put("70", "LXX");
+        numberValues.put("80", "LXXX");
+        numberValues.put("90", "XC");
+        numberValues.put("100", "C");
+
+    }
+
+
+    public String convertNumber(int num) {
+
+        if (isTwoDigits(num) == true) {
+            String firstDigit = getDigitAtZeroIndex(num);
+            String firstDigitValue = numberValues.get(firstDigit);
+            String secondDigit = String.valueOf(num).substring(1);
+            String secondDigitValue = numberValues.get(secondDigit);
+
+            return firstDigitValue.concat(secondDigitValue);
+        }
+        String unitValue  = numberValues.get(String.valueOf(num));
+        return unitValue;
+
+    }
+
+
+    boolean isTwoDigits(int num) {
+        int length = String.valueOf(num).length();
+        if (length == 2)
+            return true;
+        return false;
+    }
+
+    String getDigitAtZeroIndex(int num) {
+        String firstNum = String.valueOf(num).substring(0, 1);
+        return firstNum.concat("0");
+    }
+
+}
