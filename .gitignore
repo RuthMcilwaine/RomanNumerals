@@ -2,3 +2,4 @@
 .idea/*.xml
 /out
 *.iml
+.DS_Store
