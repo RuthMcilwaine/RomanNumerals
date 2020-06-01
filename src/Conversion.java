@@ -34,15 +34,16 @@ public class Conversion {
     public String convertNumber(int num) {
 
         if (isTwoDigits(num)) {
+
             String firstDigit = getFirstDigit(num);
             String firstDigitValue = numberValues.get(firstDigit);
             String secondDigit = String.valueOf(num).substring(1);
+
             String secondDigitValue = numberValues.get(secondDigit);
 
             return firstDigitValue.concat(secondDigitValue);
         }
         return numberValues.get(String.valueOf(num));
-
     }
 
 
@@ -52,8 +53,18 @@ public class Conversion {
     }
 
     String getFirstDigit(int num) {
-        String firstNum = String.valueOf(num).substring(0, 1);
-        return firstNum.concat("0");
+
+        String firstDigit = String.valueOf(num).substring(0, 1);
+        return firstDigit.concat("0");
     }
 
+    String getSecondDigit(int num) {
+
+        String secondDigit = String.valueOf(num).substring(1);
+        if (secondDigit.equals("0")) {
+            return numberValues.get(String.valueOf(num));
+
+        }
+        return null;
+    }
 }

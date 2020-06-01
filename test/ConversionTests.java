@@ -36,9 +36,15 @@ class ConversionTests {
     }
 
     @Test
-    void convertIntegersToRomanNumerals() {
+    void convertIntegers86ToRomanNumerals() {
         String actual = conversion.convertNumber(86);
         Assertions.assertEquals("LXXXVI", actual);
+    }
+
+    @Test
+    void convertIntegers50ToRomanNumerals() {
+        String actual = conversion.convertNumber(50);
+        Assertions.assertEquals("L", actual);
     }
 
 
