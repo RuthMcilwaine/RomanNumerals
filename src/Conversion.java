@@ -33,28 +33,25 @@ public class Conversion {
 
     public String convertNumber(int num) {
 
-        if (isTwoDigits(num) == true) {
-            String firstDigit = getDigitAtZeroIndex(num);
+        if (isTwoDigits(num)) {
+            String firstDigit = git checkout master -- .gitignore(num);
             String firstDigitValue = numberValues.get(firstDigit);
             String secondDigit = String.valueOf(num).substring(1);
             String secondDigitValue = numberValues.get(secondDigit);
 
             return firstDigitValue.concat(secondDigitValue);
         }
-        String unitValue  = numberValues.get(String.valueOf(num));
-        return unitValue;
+        return numberValues.get(String.valueOf(num));
 
     }
 
 
-    boolean isTwoDigits(int num) {
+    private boolean isTwoDigits(int num) {
         int length = String.valueOf(num).length();
-        if (length == 2)
-            return true;
-        return false;
+        return length == 2;
     }
 
-    String getDigitAtZeroIndex(int num) {
+    String getFirstDigit(int num) {
         String firstNum = String.valueOf(num).substring(0, 1);
         return firstNum.concat("0");
     }
