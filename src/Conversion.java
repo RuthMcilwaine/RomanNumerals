@@ -34,7 +34,7 @@ public class Conversion {
     public String convertNumber(int num) {
 
         if (isTwoDigits(num)) {
-            String firstDigit = git checkout master -- .gitignore(num);
+            String firstDigit = getFirstDigit(num);
             String firstDigitValue = numberValues.get(firstDigit);
             String secondDigit = String.valueOf(num).substring(1);
             String secondDigitValue = numberValues.get(secondDigit);
