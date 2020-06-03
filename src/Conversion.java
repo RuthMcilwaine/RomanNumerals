@@ -37,11 +37,13 @@ public class Conversion {
 
             String firstDigit = getFirstDigit(num);
             String firstDigitValue = numberValues.get(firstDigit);
-            String secondDigit = String.valueOf(num).substring(1);
+            String secondDigit = getSecondDigit(num);
+            String secondDigitValue = "";
 
-            String secondDigitValue = numberValues.get(secondDigit);
+            if (!secondDigit.equals("0"))
+                secondDigitValue = numberValues.get(secondDigit);
 
-            return firstDigitValue.concat(secondDigitValue);
+            return firstDigitValue + secondDigitValue;
         }
         return numberValues.get(String.valueOf(num));
     }
@@ -60,11 +62,7 @@ public class Conversion {
 
     String getSecondDigit(int num) {
 
-        String secondDigit = String.valueOf(num).substring(1);
-        if (secondDigit.equals("0")) {
-            return numberValues.get(String.valueOf(num));
+        return String.valueOf(num).substring(1);
 
-        }
-        return null;
     }
 }
